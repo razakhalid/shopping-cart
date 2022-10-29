@@ -15,6 +15,8 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
+
 export default {
   name: 'ProductListItem',
   props: {
@@ -24,10 +26,9 @@ export default {
     }
   },
   methods: {
-    addCartItem(productItem) {
-      const self = this;
-      self.$store.dispatch('addCartItem', productItem);
-    }
+    ...mapActions([
+        'addCartItem'
+    ])
   }
 }
 </script>

@@ -3,8 +3,10 @@
     <p class="cart-item--title is-inline">{{ cartItem.title }}</p>
     <div class="is-pulled-right">
       <i
+          @click="addCartItem(cartItem)"
           class="fa fa-arrow-circle-up cart-item--modify"></i>
       <i
+          @click="removeCartItem(cartItem)"
           class="fa fa-arrow-circle-down cart-item--modify"></i>
     </div>
     <div class="cart-item--content">
@@ -19,12 +21,20 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
+
 export default {
   name: 'CartListItem',
   props: {
     cartItem: {
       type: Object
     }
+  },
+  methods: {
+    ...mapActions([
+        'addCartItem',
+        'removeCartItem'
+    ])
   }
 };
 </script>
