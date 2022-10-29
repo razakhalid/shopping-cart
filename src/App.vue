@@ -1,20 +1,26 @@
 <template>
   <div id="app">
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </nav>
-    <router-view/>
-    <hello-world></hello-world>
+    <div class="container">
+      <div class="columns">
+        <div class="column is-3">
+          <CartList />
+        </div>
+        <div class="column is-9">
+          <ProductList />
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue';
+import CartList from './components/cart/CartList.vue';
+import ProductList from './components/product/ProductList.vue';
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    CartList,
+    ProductList
   }
 }
 </script>
