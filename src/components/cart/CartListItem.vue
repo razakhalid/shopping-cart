@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p class="cart-item--title is-inline">Item # 1</p>
+    <p class="cart-item--title is-inline">{{ cartItem.title }}</p>
     <div class="is-pulled-right">
       <i
           class="fa fa-arrow-circle-up cart-item--modify"></i>
@@ -9,10 +9,10 @@
     </div>
     <div class="cart-item--content">
       <span class="cart-item--price has-text-primary has-text-weight-bold">
-        10$ each
+        ${{ cartItem.price }} each
       </span>
       <span class="cart-item--quantity has-text-grey is-pulled-right">
-        Quantity: 10
+        {{ cartItem.quantity }}
       </span>
     </div>
   </div>
@@ -20,7 +20,12 @@
 
 <script>
 export default {
-  name: 'CartListItem'
+  name: 'CartListItem',
+  props: {
+    cartItem: {
+      type: Object
+    }
+  }
 };
 </script>
 

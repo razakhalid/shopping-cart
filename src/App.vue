@@ -27,6 +27,7 @@ export default {
 
 <style>
 @import './../public/bulma/bulma.css';
+@import './../public/font-awesome/css/font-awesome.css';
 html,
 body {
   background: #f2f6fa;
