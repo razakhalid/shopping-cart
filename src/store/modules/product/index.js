@@ -16,7 +16,6 @@ const actions = {
         axios.get(endpoint)
             .then(response => {
                commit('UPDATE_PRODUCT_ITEMS', response.data);
-               console.log(response.data)
             });
     }
 }

@@ -3,18 +3,23 @@
       <div class="products--header has-text-centered"> <i class="fa fa-2x fa-user-circle"></i>
       </div>
       <div class="product-list">
-        <div class="product-list--item"> <div>
-          <h2 class="has-text-weight-bold">The Fullstack Hoodie
-            <span class="tag
-                is-primary
-                is-pulled-right
-                has-text-white">
-              Add to Cart </span>
-          </h2>
-          <p>Lightweight, breathable hoodie with the Fullstack Crest. Guaranteed to keep you looking fresh while warm.</p>
-          <span class="has-text-primary has-text-weight-bold">
-            <i class="fa fa-usd"></i> 19.99
-          </span>
+        <div
+            v-for="productItem in productItems"
+            :key="productItem.id"
+            class="product-list--item">
+          <product-list-item :productItem="productItem" />
+          <div>
+<!--          <h2 class="has-text-weight-bold">The Fullstack Hoodie-->
+<!--            <span class="tag-->
+<!--                is-primary-->
+<!--                is-pulled-right-->
+<!--                has-text-white">-->
+<!--              Add to Cart </span>-->
+<!--          </h2>-->
+<!--          <p>Lightweight, breathable hoodie with the Fullstack Crest. Guaranteed to keep you looking fresh while warm.</p>-->
+<!--          <span class="has-text-primary has-text-weight-bold">-->
+<!--            <i class="fa fa-usd"></i> 19.99-->
+<!--          </span>-->
         </div>
         </div>
       </div>
@@ -24,11 +29,22 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+import ProductListItem from './ProductListItem.vue';
+
 export default {
   name: 'ProductList',
+  computed: {
+    ...mapGetters([
+        'productItems'
+    ])
+  },
   created() {
     const self = this;
     self.$store.dispatch('getProductItems');
+  },
+  components: {
+    ProductListItem
   }
 }
 </script>
