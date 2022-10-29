@@ -25,7 +25,11 @@
 
 <script>
 export default {
-  name: 'ProductList'
+  name: 'ProductList',
+  created() {
+    const self = this;
+    self.$store.dispatch('getProductItems');
+  }
 }
 </script>
 
