@@ -2,6 +2,7 @@
   <div>
     <h2 class="has-text-weight-bold">{{ productItem.title }}
       <span
+          @click="addCartItem(productItem)"
           class="tag is-primary is-pulled-right has-text-white">
         Add to Cart
       </span>
@@ -20,6 +21,12 @@ export default {
     productItem: {
       type: Object,
       required: true
+    }
+  },
+  methods: {
+    addCartItem(productItem) {
+      const self = this;
+      self.$store.dispatch('addCartItem', productItem);
     }
   }
 }
